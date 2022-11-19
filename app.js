@@ -34,8 +34,8 @@ app.get('/api/v1/tours', (req, res) => {
 
 app.get('/api/v1/tours/:id', (req, res) => {
     console.log(req.params);
-    const id = req.params.id*1;
     const tour = tours.find(el=> el.id === id);
+    const id = req.params.id*1;
 
     if(!tour) {
     // if (id > tours.length -1) {
@@ -71,6 +71,47 @@ app.post('/api/v1/tours', (req, res) => {
         });
     });
 
+});
+
+
+app.patch('/api/v1/tours/:id', (req, res) => {
+
+
+    const id = req.params.id*1;
+
+    if (id > tours.length -1) {
+        return res.status(404).json({
+            status: 'error',
+            message: 'No such tour',
+        });
+    }
+
+
+    res.status(200).json({
+        status:'succcess',
+        data: {
+            tour:'<update tour here>'
+        }
+    });
+});
+
+app.delete('/api/v1/tours/:id', (req, res) => {
+
+
+    const id = req.params.id*1;
+
+    if (id > tours.length -1) {
+        return res.status(404).json({
+            status: 'error',
+            message: 'No such tour',
+        });
+    }
+
+
+    res.status(204).json({
+        status:'succcess',
+        data: null
+    });
 });
 
 app.listen(port, () => {

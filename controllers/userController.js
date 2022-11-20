@@ -1,15 +1,9 @@
-
-
 exports.getAllUsers = (req, res) => {
-    console.log('in get all users');
   res.status(500).json({
     status: 'error',
     message: 'This route is not yet implemented',
   });
 };
-
-
-
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: 'error',

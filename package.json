@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "learning node, express and mongodb",
   "main": "app.js",
+  "engines": {
+    "node": ">=8.3.0"
+},
   "scripts": {
     "start:dev": "nodemon server.js",
     "start:prod": "SET NODE_ENV=development&&nodemon server.js"

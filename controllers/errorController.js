@@ -51,7 +51,8 @@ module.exports = (err, req, res, next) => {
     let error = Object.assign(err);
     if (error.name === 'CastError') error = handleCastErrorDb(error);
     if (error.code === 11000) error = handleDuplicateFieldsDb(error);
-    if (error.name == 'ValidationError') error = handleValidationErrorDb(error);
+    if (error.name === 'ValidationError')
+      error = handleValidationErrorDb(error);
     sendErrorProd(error, res);
   }
 };
